@@ -6,6 +6,19 @@ public class SinglyLinkedList {
     public void add(int number) {
         if (node == null) {
             node = new Node(number, null);
+        } else {
+
+            Node tempNode = node;
+            while (true) {
+                //System.out.println("Check while loop");
+                if (tempNode.getNode() == null) {
+                    //System.out.println("if condition execute");
+                    tempNode.setNode(new Node(number,null));
+                    //System.out.println(tempNode.getNumber());
+                    return;
+                }
+                tempNode = tempNode.getNode();
+            }
         }
     }
 
@@ -22,14 +35,17 @@ public class SinglyLinkedList {
     }
 
     public void print() {
-        Node tempNode =node;
+        Node tempNode = node;
         while (true) {
-            if (tempNode==null){
+            if (tempNode == null) {
                 return;
             }
             System.out.println(tempNode.getNumber());
             tempNode = tempNode.getNode();
         }
+
+        //System.out.println(node.getNumber());
+        //System.out.println(node.getNode().getNumber());
     }
 
     public void clear() {
