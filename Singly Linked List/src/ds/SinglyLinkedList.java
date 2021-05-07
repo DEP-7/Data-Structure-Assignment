@@ -4,21 +4,14 @@ public class SinglyLinkedList {
     private Node node;
 
     public void add(int number) {
-        if (node == null) {
-            node = new Node(number, null);
+        if (empty()) {
+            node = new Node(number);
         } else {
-
             Node tempNode = node;
-            while (true) {
-                //System.out.println("Check while loop");
-                if (tempNode.getNode() == null) {
-                    //System.out.println("if condition execute");
-                    tempNode.setNode(new Node(number, null));
-                    //System.out.println(tempNode.getNumber());
-                    return;
-                }
+            for (int i = 0; i < size()-1; i++) {
                 tempNode = tempNode.getNode();
             }
+            tempNode.setNode(new Node(number));
         }
     }
 
