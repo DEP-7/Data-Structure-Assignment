@@ -7,5 +7,11 @@ public class SinglyLinkedListTest {
         singlyLinkedList.print();
         singlyLinkedList.add(20);
         singlyLinkedList.print();
+        singlyLinkedList.add(30);
+        singlyLinkedList.print();
+        singlyLinkedList.add(40);
+        singlyLinkedList.print();
+        singlyLinkedList.add(50);
+        singlyLinkedList.print();
     }
 }
