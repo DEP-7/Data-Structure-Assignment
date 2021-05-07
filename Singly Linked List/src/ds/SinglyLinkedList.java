@@ -1,8 +1,12 @@
 package ds;
 
 public class SinglyLinkedList {
-    public void add(int number) {
+    private Node node;
 
+    public void add(int number) {
+        if (node == null) {
+            node = new Node(number, null);
+        }
     }
 
     public void add(int index, int number) {
@@ -18,7 +22,9 @@ public class SinglyLinkedList {
     }
 
     public void print() {
-
+        while (node != null) {
+            System.out.println(node.getNumber());
+        }
     }
 
     public void clear() {
