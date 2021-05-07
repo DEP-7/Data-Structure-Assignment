@@ -22,8 +22,13 @@ public class SinglyLinkedList {
     }
 
     public void print() {
-        while (node != null) {
-            System.out.println(node.getNumber());
+        Node tempNode =node;
+        while (true) {
+            if (tempNode==null){
+                return;
+            }
+            System.out.println(tempNode.getNumber());
+            tempNode = tempNode.getNode();
         }
     }
 

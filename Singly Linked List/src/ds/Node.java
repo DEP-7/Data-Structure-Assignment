@@ -12,4 +12,8 @@ public class Node {
     public int getNumber() {
         return number;
     }
+
+    public Node getNode() {
+        return node;
+    }
 }
