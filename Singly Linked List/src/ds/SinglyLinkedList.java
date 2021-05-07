@@ -40,10 +40,7 @@ public class SinglyLinkedList {
         }else {
             System.out.print("[");
             Node tempNode = node;
-            while (true) {
-                if (tempNode == null) {
-                    break;
-                }
+            for (int i = 0; i < size(); i++) {
                 System.out.print(tempNode.getNumber()+", ");
                 tempNode = tempNode.getNode();
             }
@@ -56,7 +53,18 @@ public class SinglyLinkedList {
     }
 
     public int size() {
-        return 0;
+        if (empty()){
+            return 0;
+        }
+        int count =0;
+        Node tempNode=node;
+        while (true) {
+            if (tempNode == null) {
+                return count;
+            }
+            count++;
+            tempNode = tempNode.getNode();
+        }
     }
 
     public boolean contains(int number) {
