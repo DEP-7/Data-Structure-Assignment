@@ -4,17 +4,17 @@ public class SinglyLinkedList {
     private Node node;
 
     public void add(int number) {
-        add(size(),number);
+        add(size(), number);
     }
 
     public void add(int index, int number) {
         if (index > size() || index < 0) {
             throw new RuntimeException("Invalid index. Array size is " + size());
         }
-        if (index==0){
+        if (index == 0) {
             Node tempNodeForTailItems = node;
-            node=new Node(number,tempNodeForTailItems);
-        }else {
+            node = new Node(number, tempNodeForTailItems);
+        } else {
             Node tempNode = node;
             for (int i = 0; i < index - 1; i++) {
                 tempNode = tempNode.getNode();
@@ -26,7 +26,24 @@ public class SinglyLinkedList {
     }
 
     public void remove(int index) {
-
+        if (index >= size() || index < 0) {
+            throw new RuntimeException("Invalid index. Array size is " + size());
+        }
+        if (size() == 1) {
+            clear();
+            return;
+        }
+        if (index == 0) {
+            Node tempNodeForTailItems = node;
+            node = tempNodeForTailItems.getNode();
+        } else {
+            Node tempNode = node;
+            for (int i = 0; i < index - 1; i++) {
+                tempNode = tempNode.getNode();
+            }
+            Node tempNodeForTailItems = tempNode.getNode();
+            tempNode.setNode(tempNodeForTailItems.getNode());
+        }
     }
 
     public int get(int index) {
@@ -48,7 +65,7 @@ public class SinglyLinkedList {
     }
 
     public void clear() {
-
+        node = null;
     }
 
     public int size() {

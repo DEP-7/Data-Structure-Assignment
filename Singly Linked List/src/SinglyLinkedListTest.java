@@ -14,7 +14,9 @@ public class SinglyLinkedListTest {
         singlyLinkedList.print();
         singlyLinkedList.add(50);
         singlyLinkedList.print();
-        singlyLinkedList.add(0,25);
+        singlyLinkedList.add(2,25);
+        singlyLinkedList.print();
+        singlyLinkedList.remove(2);
         singlyLinkedList.print();
         System.out.println(singlyLinkedList.size());
     }
