@@ -94,6 +94,16 @@ public class SinglyLinkedList {
     }
 
     public boolean contains(int number) {
+        if (empty()) {
+            return false;
+        }
+        Node tempNode = node;
+        for (int i = 0; i < size(); i++) {
+            if (tempNode.getNumber() == number) {
+                return true;
+            }
+            tempNode = tempNode.getNode();
+        }
         return false;
     }
 
