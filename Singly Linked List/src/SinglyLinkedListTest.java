@@ -18,6 +18,10 @@ public class SinglyLinkedListTest {
         singlyLinkedList.print();
         singlyLinkedList.remove(2);
         singlyLinkedList.print();
+        System.out.println(singlyLinkedList.get(0));
+        System.out.println(singlyLinkedList.get(1));
+        System.out.println(singlyLinkedList.get(2));
+        System.out.println(singlyLinkedList.get(3));
         System.out.println(singlyLinkedList.size());
     }
 }

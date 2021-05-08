@@ -47,7 +47,17 @@ public class SinglyLinkedList {
     }
 
     public int get(int index) {
-        return 0;
+        if (index >= size() || index < 0) {
+            throw new RuntimeException("Invalid index. Array size is " + size());
+        }
+        if (index == 0) {
+            return node.getNumber();
+        }
+        Node tempNode = node;
+        for (int i = 0; i < index; i++) {
+            tempNode = tempNode.getNode();
+        }
+        return tempNode.getNumber();
     }
 
     public void print() {
