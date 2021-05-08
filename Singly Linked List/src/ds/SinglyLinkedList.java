@@ -4,36 +4,25 @@ public class SinglyLinkedList {
     private Node node;
 
     public void add(int number) {
-        if (empty()) {
-            node = new Node(number);
-        } else {
-            Node tempNode = node;
-            for (int i = 0; i < size() - 1; i++) {
-                tempNode = tempNode.getNode();
-            }
-            tempNode.setNode(new Node(number));
-        }
+        add(size(),number);
     }
 
     public void add(int index, int number) {
         if (index > size() || index < 0) {
             throw new RuntimeException("Invalid index. Array size is " + size());
         }
-        if (empty()) {
-            node = new Node(number);
-            return;
+        if (index==0){
+            Node tempNodeForTailItems = node;
+            node=new Node(number,tempNodeForTailItems);
+        }else {
+            Node tempNode = node;
+            for (int i = 0; i < index - 1; i++) {
+                tempNode = tempNode.getNode();
+            }
+            Node tempNodeForTailItems = tempNode.getNode();
+            tempNode.setNode(new Node(number));
+            tempNode.getNode().setNode(tempNodeForTailItems);
         }
-        Node tempNode = node;
-        for (int i = 0; i < index - 1; i++) {
-            tempNode = tempNode.getNode();
-            //System.out.println(tempNode.getNumber());
-        }
-        Node tempNodeForTailItems = tempNode.getNode();
-        //System.out.println(tempNodeForTailItems.getNumber());
-        //System.out.println(tempNode.getNumber());
-        tempNode.setNode(new Node(number));
-        //System.out.println(tempNode.getNode().getNode());
-        tempNode.getNode().setNode(tempNodeForTailItems);
     }
 
     public void remove(int index) {

@@ -8,6 +8,11 @@ public class Node {
         this.number = number;
     }
 
+    public Node(int number, Node node) {
+        this.number = number;
+        this.node = node;
+    }
+
     public int getNumber() {
         return number;
     }
