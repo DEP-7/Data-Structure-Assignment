@@ -8,7 +8,7 @@ public class SinglyLinkedList {
             node = new Node(number);
         } else {
             Node tempNode = node;
-            for (int i = 0; i < size()-1; i++) {
+            for (int i = 0; i < size() - 1; i++) {
                 tempNode = tempNode.getNode();
             }
             tempNode.setNode(new Node(number));
@@ -16,7 +16,24 @@ public class SinglyLinkedList {
     }
 
     public void add(int index, int number) {
-
+        if (index > size() || index < 0) {
+            throw new RuntimeException("Invalid index. Array size is " + size());
+        }
+        if (empty()) {
+            node = new Node(number);
+            return;
+        }
+        Node tempNode = node;
+        for (int i = 0; i < index - 1; i++) {
+            tempNode = tempNode.getNode();
+            //System.out.println(tempNode.getNumber());
+        }
+        Node tempNodeForTailItems = tempNode.getNode();
+        //System.out.println(tempNodeForTailItems.getNumber());
+        //System.out.println(tempNode.getNumber());
+        tempNode.setNode(new Node(number));
+        //System.out.println(tempNode.getNode().getNode());
+        tempNode.getNode().setNode(tempNodeForTailItems);
     }
 
     public void remove(int index) {
@@ -30,11 +47,11 @@ public class SinglyLinkedList {
     public void print() {
         if (empty()) {
             System.out.println("[]");
-        }else {
+        } else {
             System.out.print("[");
             Node tempNode = node;
             for (int i = 0; i < size(); i++) {
-                System.out.print(tempNode.getNumber()+", ");
+                System.out.print(tempNode.getNumber() + ", ");
                 tempNode = tempNode.getNode();
             }
             System.out.println("\b\b]");
@@ -46,11 +63,11 @@ public class SinglyLinkedList {
     }
 
     public int size() {
-        if (empty()){
+        if (empty()) {
             return 0;
         }
-        int count =0;
-        Node tempNode=node;
+        int count = 0;
+        Node tempNode = node;
         while (true) {
             if (tempNode == null) {
                 return count;
